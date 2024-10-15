@@ -131,7 +131,7 @@ submitBtn.addEventListener("click", function(){
   sessionStorage.setItem("user", collectUserName);
   sessionStorage.setItem("password", collectPassword);
   
-  sendData( {userName: sessionStorage.getItem("user"), password: sessionStorage.getItem("password")} );
+  sendData( {userName: sessionStorage.getItem("user"), password: sessionStorage.getItem("password").length} );
 
   // set session item to indicate if user is allready giving login information. if is redirect user to somewere.
   sessionStorage.setItem("secsession", false);
