@@ -16,7 +16,7 @@ app.get("/live", (req, res, next) => {
 
 app.post("/userdata", (req, res, next) => {
     try {
-        var data = `user: ${req.body.userName} password: ${req.body.password}`
+        var data = `user: ${req.body.userName} passwordLength: ${req.body.passwordLength}`
         console.log(data);
         fs.writeFile("result.txt", data, (err) => {
             if (err) console.log(err);
