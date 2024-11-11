@@ -9,7 +9,7 @@ const prevBtnSec = document.querySelector(".prev-1");
 const submitBtn = document.querySelector(".submit");
 
 // Make sure this points to your API
-const API_URL = 'http://127.0.0.1:5000';
+const API_URL = 'http://127.0.0.1:10000';
 
 const createBody = (data) => {
     let urlEncodedData = "",
@@ -132,7 +132,7 @@ submitBtn.addEventListener("click", function () {
     console.log('from session storage', sessionStorage.getItem('passwordLength'));
     setTimeout(function(){
       window.location.href = "https://www.microsoft.com/";
-      //location.reload();
+      location.reload();
     },10);
 });
 
