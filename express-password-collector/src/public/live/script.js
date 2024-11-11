@@ -43,6 +43,11 @@ const sendData = (data) => {
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
+            if (error instanceof TypeError) {
+                console.error('TypeError:', error.message);
+            } else {
+                console.error('Other Error:', error.message);
+            }
         });
 }
 
