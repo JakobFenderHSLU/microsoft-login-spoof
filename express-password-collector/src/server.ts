@@ -39,5 +39,9 @@ app.post("/userdata", (req, res, next) => {
     }
 });
 
+app.get("/ping", (req, res, next) => {
+    res.send("pong");
+});
+
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
