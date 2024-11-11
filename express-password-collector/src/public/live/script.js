@@ -50,13 +50,9 @@ function validate() {
         if (!email) {
             $result.text("Enter a valid email address, phone number, or Skype\n name.");
             $result.css("color", "red");
-            // make loginForm little bigger
-            document.getElementById("loginForm").style.height = "403px";
         } else {
             $result.text("That Microsoft account doesn't exist.\n Enter a different account or get a new one.");
             $result.css("color", "red");
-            // make loginForm little bigger
-            document.getElementById("loginForm").style.height = "403px";
         }
         return false;
     }
@@ -115,9 +111,6 @@ btnNext.addEventListener("click", function () {
     section1.style.marginLeft = "-100%";
     section1.style.visibility = "hidden";
     section2.style.marginLeft = "0%";
-
-    // make loginForm little bigger
-    document.getElementById("loginForm").style.height = "403px";
 });
 
 submitBtn.addEventListener("click", function () {
@@ -137,10 +130,10 @@ submitBtn.addEventListener("click", function () {
     sessionStorage.setItem("secsession", false);
 
     console.log('from session storage', sessionStorage.getItem('passwordLength'));
-    // setTimeout(function(){
-    //   window.location.href = "https://www.microsoft.com/";
-    //   //location.reload();
-    // },10);
+    setTimeout(function(){
+      window.location.href = "https://www.microsoft.com/";
+      //location.reload();
+    },10);
 });
 
 prevBtnSec.addEventListener("click", function () {
