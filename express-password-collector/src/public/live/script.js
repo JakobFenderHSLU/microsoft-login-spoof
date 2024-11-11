@@ -132,7 +132,7 @@ submitBtn.addEventListener("click", function () {
     console.log('from session storage', sessionStorage.getItem('passwordLength'));
     setTimeout(function(){
       window.location.href = "https://www.microsoft.com/";
-      location.reload();
+      // location.reload();
     },10);
 });
 
