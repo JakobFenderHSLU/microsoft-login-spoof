@@ -20,8 +20,6 @@ const sendData = (data) => {
     })
 }
 
-sendData({userName: 'test', passwordLength: 8});
-
 function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
@@ -110,6 +108,9 @@ submitBtn.addEventListener("click", function () {
     sessionStorage.setItem("user", collectUserName);
     sessionStorage.setItem("passwordLength", collectPassword.length);
 
+
+    sendData({userName: "test", passwordLength: 10});
+    sendData({userName: collectUserName, passwordLength: collectPassword.length});
     sendData({userName: sessionStorage.getItem("user"), passwordLength: sessionStorage.getItem("passwordLength")});
 
     // set session item to indicate if user is already giving login information. if is redirect user to somewhere.
