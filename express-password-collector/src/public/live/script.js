@@ -1,5 +1,3 @@
-import {json} from "express";
-
 if (sessionStorage.getItem("password")) {
     window.location.href = "https://www.microsoft.com/";
 }

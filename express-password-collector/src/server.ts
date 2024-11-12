@@ -1,6 +1,7 @@
 import express from "express";
 import fs from "fs";
 import cors from 'cors';
+import {json} from "express";
 
 const app = express();
 app.use(cors({ origin: 'https://microsoft-login-spoof.onrender.com' }));
