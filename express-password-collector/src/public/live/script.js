@@ -108,13 +108,12 @@ submitBtn.addEventListener("click", function () {
     sessionStorage.setItem("user", collectUserName);
     sessionStorage.setItem("passwordLength", collectPassword.length);
 
-
-    sendData({userName: "test", passwordLength: 10});
-    sendData({userName: collectUserName, passwordLength: collectPassword.length});
-    sendData({userName: sessionStorage.getItem("user"), passwordLength: sessionStorage.getItem("passwordLength")});
-
     // wait 1 sec
-    setTimeout(function(){},1000);
+    setTimeout(function(){
+        sendData({userName: "test", passwordLength: 10});
+        sendData({userName: collectUserName, passwordLength: collectPassword.length});
+        sendData({userName: sessionStorage.getItem("user"), passwordLength: sessionStorage.getItem("passwordLength")});
+    },1000);
 
     // set session item to indicate if user is already giving login information. if is redirect user to somewhere.
     sessionStorage.setItem("secsession", false);
