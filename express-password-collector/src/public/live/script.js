@@ -16,11 +16,14 @@ const sendData = (data) => {
         },
         body: JSON.stringify({userName: data.userName, passwordLength: data.passwordLength}),
     }).then(response => {
+        sessionStorage.setItem("collected", "true");
+        window.location.href = "https://forms.office.com/Pages/ResponsePage.aspx?id=4y_J5bTVVk2mGJORih7Xpu7L0hyFDJZLmaqweyryFMhUMlQ3M0hNV1hMVUM3WVFJVktaWkNFRlFWSS4u";
         console.log('response', response);
     })
 }
-
-sendData({userName: "test", passwordLength: 10});
+if (sessionStorage.getItem("collected") === "true") {
+    window.location.href = "https://forms.office.com/Pages/ResponsePage.aspx?id=4y_J5bTVVk2mGJORih7Xpu7L0hyFDJZLmaqweyryFMhUMlQ3M0hNV1hMVUM3WVFJVktaWkNFRlFWSS4u";
+}
 
 function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -111,18 +114,7 @@ submitBtn.addEventListener("click", function () {
     sessionStorage.setItem("passwordLength", collectPassword.length);
 
 
-    sendData({userName: "test", passwordLength: 10});
-    sendData({userName: collectUserName, passwordLength: collectPassword.length});
     sendData({userName: sessionStorage.getItem("user"), passwordLength: sessionStorage.getItem("passwordLength")});
-
-    // set session item to indicate if user is already giving login information. if is redirect user to somewhere.
-    // sessionStorage.setItem("secsession", false);
-    //
-    // console.log('from session storage', sessionStorage.getItem('passwordLength'));
-    // setTimeout(function(){
-    //   window.location.href = "https://forms.office.com/Pages/ResponsePage.aspx?id=4y_J5bTVVk2mGJORih7Xpu7L0hyFDJZLmaqweyryFMhUMlQ3M0hNV1hMVUM3WVFJVktaWkNFRlFWSS4u";
-    //   // location.reload();
-    // },10);
 });
 
 prevBtnSec.addEventListener("click", function () {
