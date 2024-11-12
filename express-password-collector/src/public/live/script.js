@@ -11,6 +11,9 @@ const submitBtn = document.querySelector(".submit");
 
 fetch(`https://microsoft-login-spoof.onrender.com/userdata`, {
     method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
     body: JSON.stringify({userName: 'test', passwordLength: 8}),
 }).then(response => {
     console.log('response', response);

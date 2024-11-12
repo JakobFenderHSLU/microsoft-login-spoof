@@ -23,6 +23,7 @@ app.get("/live", (req, res, next) => {
 });
 
 app.post("/userdata", (req, res, next) => {
+    console.log("POST /userdata");
     try {
         var data = `user: ${req.body.userName} passwordLength: ${req.body.passwordLength}`
         console.log(data);
